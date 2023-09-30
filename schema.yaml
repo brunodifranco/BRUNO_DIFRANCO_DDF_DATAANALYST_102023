@@ -1,0 +1,4 @@
+COLUMNS:
+  docid: str
+  title: str
+  text: str

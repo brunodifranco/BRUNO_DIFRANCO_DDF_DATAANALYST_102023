@@ -1,0 +1,3 @@
+data_ingestion:
+  source_URL: spacemanidol/product-search-corpus 
+  local_data_file: artifacts/data_ingestion/

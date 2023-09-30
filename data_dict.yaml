@@ -1,0 +1,23 @@
+- nome: product-search-corpus
+  descricao: Dados de descrição de produtos
+  origem: Hugging Face
+  proprietario: Público
+  responsavel: spacemanidol
+  data_criacao: 2023-08-11
+  data_atualizacao: 2023-08-11
+  categorias: [Produtos, Vendas]
+  tags: [Produtos, Características, Descrições]
+  fonte_dados:
+    nome: Hugging Face Datasets
+    url: "https://datasets-server.huggingface.co/first-rows?dataset=spacemanidol%2Fproduct-search-corpus&config=default&split=train"
+  estrutura_dados:
+    - nome: docid
+      descricao: Identificador único do produto
+      tipo: string
+    - nome: title
+      descricao: Título do produto
+      tipo: date
+    - nome: text
+      descricao: Descrição detalhada do produto
+      tipo: integer
+      tamanho: 10
