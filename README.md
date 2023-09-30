@@ -1,4 +1,4 @@
-# Item 1 - Sobre Storytelling e Apresentação
+# **Item 1 - Sobre Storytelling e Apresentação**
 
 ## Problema
 
@@ -20,7 +20,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 
 - Diagrama:
 
-# Item  2 - Sobre a Dadosfera
+# **Item  2 - Sobre a Dadosfera**
 
 ## Problema
 
@@ -31,7 +31,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 ## Solução
 
 
-# Item 3 - Sobre GenAI e LLMs
+# **Item 3 - Sobre GenAI e LLMs**
 
 ## Problema
 
@@ -40,7 +40,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 ## Solução
   
 
-# Item  4 - Sobre SQL e Python
+# **Item  4 - Sobre SQL e Python**
 
 ## Problema
 
@@ -51,7 +51,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 ## Solução
 
 
-# Item  5 - Sobre Data Apps
+# **Item  5 - Sobre Data Apps**
 
 ## Problema
 
@@ -63,7 +63,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 
 ## Solução
 
-# Item Bonus - Sobre GenAI + Data Apps
+# **Item Bonus - Sobre GenAI + Data Apps**
 
 ## Problema
 
