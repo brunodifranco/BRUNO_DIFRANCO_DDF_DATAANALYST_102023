@@ -30,9 +30,11 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 
 ## Solução
 
-Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos.
+Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`.
 
 ![Alt text](image_data_ingestion.png)
+
+![Alt text](extract_verbose.png)
 
 
 Além disso, também é possível avaliar o processo feito, através do notebook `research/30-09-2023-extract.ipynb`, contendo um sample dos dados, além de informações básicas como tipos de dados, dados faltantes, tamanho dos dados, etc. 
@@ -48,6 +50,8 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, co
 <p align="justify"> O Dataset disponibilizado tem 2 colunas de texto, uma de título e outra de descrição. Utilize um LLM - como  ChatGPT ou Claude - para criar features dos produtos que serão úteis para análise. </p>
 
 ## Solução
+
+
   
 
 # **Item  4 - Sobre SQL e Python**
