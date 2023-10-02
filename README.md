@@ -51,8 +51,30 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, co
 
 ## Solução
 
-
+- Decidi utilizar um modelo do mesmo autor que fez o upload dos dados no HuggingFace, e segundo a tag desse [modelo](https://huggingface.co/spacemanidol/trec-product-search-e5-small-v2) ele é feito para "Feature Extraction", que é exatamente o objetivo nesse caso.
   
+- Com um pouco de pesquisa é possível perceber que o dataset foi extraído da Amazon, por isso utilizei as seguintes categorias possíveis de produtos para serem utilizadas no prompt do modelo:
+
+  - "Food",
+  - "Health, Beauty",
+  - "Electronics, Computers",
+  - "Home and Kitchen",
+  - "Clothing",
+  - "Sports",
+  - "Office",
+  - "Movies, Music",
+  - "Books"   
+  
+- Obs: Me limitei ao uso da LLM para extrair as categorias de cada produto, e não features específicas para cada produto, pois:
+  - Há uma dificuldade computacional de executar essa ação em tão pouco tempo, com apenas uma placa de vídeo RTX 3050 4GB, que é o que disponho no momento.
+  - Há uma limitação de recursos em termos de modelo para executar tal ação, pois as LLM's que conseguiriam fazer esse processo de forma quase perfeita seriam um gpt-3.5-turbo ou gpt-4, ou modelos parecidos, que não são gratuitos. 
+
+- O notebook de testes e desenvolvimento utilizado para esse item é `research/01-10-2023-llm.ipynb`. A pipeline completa e modularizada está em `llm_pipeline.py`, que novamente contou com o auxílio do arquivo `config.yaml`.
+    
+*Com mais tempo seria possível incrementar a solução sem necessariamente ter que gastar com um modelo pago, fazendo, por exemplo, o seguinte:*
+
+- *Classificando manualmente exemplos para incrementar o prompt*
+- *Utilizar PEFT (Parameter Efficient Fine-Tuning) que busca fazer o fine tuning apenas dos parâmetros "mais relevantes" (entre muitas aspas) do LLM, como 1% dos parâmetros mais relevantes, por exemplo, ao invés de aplicar o fine tuning em todos os parâmetros.*
 
 # **Item  4 - Sobre SQL e Python**
 
