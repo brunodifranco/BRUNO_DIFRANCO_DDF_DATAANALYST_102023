@@ -1,10 +1,11 @@
 from datasets import load_dataset
 from pathlib import Path
 from utils.common import read_yaml
+import os
 
 def data_ingestion(source_url: str, save_path: str) -> None:
     """   
-        Reads HuggingFace data and saves it to disk.
+        Reads HuggingFace data, converts to parquet and saves it to disk.
 
         Parameters
         ----------
@@ -22,7 +23,11 @@ def data_ingestion(source_url: str, save_path: str) -> None:
     dataset = load_dataset(source_url, 
                            split="train")
     
-    dataset.save_to_disk(save_path)
+    df = dataset.to_pandas()
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    df.to_parquet(os.path.join(save_path, "data.parquet"), compression="gzip")
 
     return None
 

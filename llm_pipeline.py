@@ -94,17 +94,15 @@ class ModelPipeline:
             predictions = []
             
             categories = {
-                        0: "Food",
-                        1: "Health, Beauty",
-                        2: "Electronics, Computers",
-                        3: "Home and Kitchen",
-                        4: "Clothing",
-                        5: "Sports",
-                        6: "Office",
-                        7: "Movies, Music",
-                        8: "Books"     
-                    }
-            
+                          0: "Health, Beauty",
+                          1: "Electronics, Computers",
+                          2: "Home and Kitchen",
+                          3: "Clothing",
+                          4: "Sports",
+                          5: "Office",
+                          6: "Movies, Music",
+                          7: "Books"     
+                         }
             for i, example in enumerate(dataset):
                 title = example["title"]
 
@@ -153,7 +151,8 @@ class ModelPipeline:
     def export_results(self, 
                        predicted_categories: list, 
                        dataset: Dataset,
-                       path_file: str) -> None:
+                       path_file: str,
+                       transformed_data_path: str) -> None:
         """   
             Concats results with original dataset and saves it to disk.
 
@@ -166,7 +165,10 @@ class ModelPipeline:
                 Original HuggingFace dataset. 
 
             path_file : str
-                Path to save parquet file
+                Parquet file name.
+
+            transformed_data_path : str
+                Artifacts folder and subfolder for transformed data.
 
             Returns
             -------
@@ -176,9 +178,9 @@ class ModelPipeline:
         df_category = pd.DataFrame(data)
         df_final = pd.concat([dataset, df_category],axis=1)
 
-        df_final.to_parquet(f"{path_file}.parquet", 
-                            index=False, 
-                            compression="gzip")
+        df_final.sample(frac=0.4).to_parquet(f"{transformed_data_path}/{path_file}.parquet", 
+                                             index=False, 
+                                             compression="gzip")
 
         return None
 
@@ -190,6 +192,7 @@ if __name__ == "__main__":
     model_url = config_path.llm_pipe.model_tokenizer_URL
     source_url = config_path.data_ingestion.source_URL
     save_path = config_path.data_ingestion.local_data_file
+    transformed_data_path = config_path.data_transformation.transformed_data_path
     
     # Instantiate pipeline 
     pipeline = ModelPipeline(source_url, model_url)
@@ -211,7 +214,8 @@ if __name__ == "__main__":
     pipeline.export_results(
                             predicted_categories,
                             dataset,
-                            path_file
+                            path_file,
+                            transformed_data_path
                             )
 
 

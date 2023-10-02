@@ -19,6 +19,8 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 - Link para o vídeo:
 
 - Diagrama:
+![Alt text](images/arquitetura.png)
+
 
 # **Item  2 - Sobre a Dadosfera**
 
@@ -30,18 +32,15 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 
 ## Solução
 
-Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`.
+Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`. 
 
-![Alt text](image_data_ingestion.png)
+![Alt text](images/image_data_ingestion.png)
 
-![Alt text](extract_verbose.png)
+![Alt text](images/extract_verbose.png)
 
-
-Além disso, também é possível avaliar o processo feito, através do notebook `research/30-09-2023-extract.ipynb`, contendo um sample dos dados, além de informações básicas como tipos de dados, dados faltantes, tamanho dos dados, etc. 
+O arquivo é salvo em `.parquet`, para economia de espaço. Além disso, também é possível avaliar o processo feito, através do notebook `research/30-09-2023-extract.ipynb`, contendo um sample dos dados, além de informações básicas como tipos de dados, dados faltantes, tamanho dos dados, etc. 
 
 Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, com diversas informações referentes aos dados extraídos. Por fim, há um arquivo somente para descrever os tipos de dados, nomeado `schema.yaml`.
-
-
 
 # **Item 3 - Sobre GenAI e LLMs**
 
@@ -55,7 +54,6 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, co
   
 - Com um pouco de pesquisa é possível perceber que o dataset foi extraído da Amazon, por isso utilizei as seguintes categorias possíveis de produtos para serem utilizadas no prompt do modelo:
 
-  - "Food",
   - "Health, Beauty",
   - "Electronics, Computers",
   - "Home and Kitchen",
@@ -67,9 +65,9 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, co
   
 - Obs: Me limitei ao uso da LLM para extrair as categorias de cada produto, e não features específicas para cada produto, pois:
   - Há uma dificuldade computacional de executar essa ação em tão pouco tempo, com apenas uma placa de vídeo RTX 3050 4GB, que é o que disponho no momento.
-  - Há uma limitação de recursos em termos de modelo para executar tal ação, pois as LLM's que conseguiriam fazer esse processo de forma quase perfeita seriam um gpt-3.5-turbo ou gpt-4, ou modelos parecidos, que não são gratuitos. 
+  - Há uma limitação de recursos em termos de modelo para executar tal ação, pois as LLM's que conseguiriam fazer esse processo de forma satisfatória seriam um gpt-3.5-turbo ou gpt-4, ou modelos parecidos, que não são gratuitos. 
 
-- O notebook de testes e desenvolvimento utilizado para esse item é `research/01-10-2023-llm.ipynb`. A pipeline completa e modularizada está em `llm_pipeline.py`, que novamente contou com o auxílio do arquivo `config.yaml`.
+- O notebook de testes e desenvolvimento utilizado para esse item é `research/01-10-2023-llm.ipynb`. A pipeline completa e modularizada está em `llm_pipeline.py`, que novamente contou com o auxílio do arquivo `config.yaml`. Finalmente, o arquivo é salvo no disco. 
     
 *Com mais tempo seria possível incrementar a solução sem necessariamente ter que gastar com um modelo pago, fazendo, por exemplo, o seguinte:*
 
