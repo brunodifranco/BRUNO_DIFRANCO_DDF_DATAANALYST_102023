@@ -39,11 +39,10 @@ Extração dos dados com o script `extract.py`, com o auxílio das funcões cria
 
 O arquivo é salvo em `.parquet`, para economia de espaço. Além disso, também é possível avaliar o processo feito, através do notebook `research/30-09-2023-extract.ipynb`, contendo um sample dos dados, além de informações básicas como tipos de dados, dados faltantes, tamanho dos dados, etc. 
 
-Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, com diversas informações referentes aos dados extraídos. Por fim, há um arquivo somente para descrever os tipos de dados, nomeado `schema.yaml`.
-
-O arquivo foi carregado para a plataforma da Dadosfera também:
-
+O arquivo foi carregado para a plataforma da Dadosfera também: 
 ![Alt text](images/dadosfera_primeiro_carregamento.png)
+
+Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml` (e na Documentação do arquivo carregado na Dadosfera), com diversas informações referentes aos dados extraídos. Por fim, há um arquivo somente para descrever os tipos de dados, nomeado `schema.yaml`.
 
 # **Item 3 - Sobre GenAI e LLMs**
 

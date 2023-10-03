@@ -1,7 +1,7 @@
 import torch
 import pandas as pd
 from pathlib import Path
-from typing import  Union
+from typing import  Tuple
 from datasets import load_dataset
 from utils.common import read_yaml
 from datasets.arrow_dataset import Dataset
@@ -49,13 +49,13 @@ class ModelPipeline:
         
         return dataset       
 
-    def llm_loading(self) -> Union[BertModel, BertTokenizerFast]:
+    def llm_loading(self) -> Tuple[BertModel, BertTokenizerFast]:
         """   
             Loads model and tokenizer.
             
             Returns
             -------
-            model, tokenizer:  Union[BertModel, BertTokenizerFast]
+            model, tokenizer:  Tuple[BertModel, BertTokenizerFast]
             LLM model and its tokenizer.
         
         """    
