@@ -33,7 +33,6 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 ## Solução
 
 Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`. 
-
 ![Alt text](images/image_data_ingestion.png)
 ![Alt text](images/extract_verbose.png)
 
@@ -69,7 +68,7 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml` (e 
   - Há uma dificuldade computacional de executar essa ação em tão pouco tempo, com apenas uma placa de vídeo RTX 3050 4GB, que é o que disponho no momento.
   - Há uma limitação de recursos em termos de modelo para executar tal ação, pois as LLM's que conseguiriam fazer esse processo de forma satisfatória seriam um gpt-3.5-turbo ou gpt-4, ou modelos parecidos, que não são gratuitos. 
 
-- O notebook de testes e desenvolvimento utilizado para esse item é `research/01-10-2023-llm.ipynb`. A pipeline completa e modularizada está em `llm_pipeline.py`, que novamente contou com o auxílio do arquivo `config.yaml`. Finalmente, o arquivo é salvo no disco. 
+- O notebook de testes e desenvolvimento utilizado para esse item é `research/01-10-2023-llm.ipynb`. A pipeline completa e modularizada está em `llm_pipeline.py`, que novamente contou com o auxílio do arquivo `config.yaml`. Finalmente, o arquivo é salvo no disco. Além disso, também subi o arquivo na plataforma da Dadosfera, com o nome `df_categories_v2.parquet`, lá é encontrada a descrição e dicionário de dados na Documentação.
     
 *Com mais tempo seria possível incrementar a solução sem necessariamente ter que gastar com um modelo pago, fazendo, por exemplo, o seguinte:*
 
@@ -85,7 +84,26 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml` (e 
 <p align="justify"> Crie uma visualização de dados que mostre uma análise das categorias dos produtos. Salve a Query SQL utilizada e também o print do resultado da query no documento markdown deste teste. </p>
 
 ## Solução
+```
+SELECT
+    category,
+    COUNT(*) AS amount_of_products
+FROM
+    TB__BJIRM1__DF_CATEGORIES_V2
+GROUP BY
+    category
+```
 
+**Resultado da Query:**
+
+![Alt text](images/query_result.png)
+
+
+**Visualização Escolhida:**
+
+![Alt text](images/viz.png)
+
+O Dashbord está disponível em **Testes Técnicos - Analista de Dados/Bruno Di Franco - 102023**, dentro do Metabase na plataforma de Dadosfera.
 
 # **Item  5 - Sobre Data Apps**
 

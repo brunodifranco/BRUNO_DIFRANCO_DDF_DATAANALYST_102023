@@ -16,8 +16,8 @@
       tipo: string
     - nome: title
       descricao: Título do produto
-      tipo: date
+      tipo: string
     - nome: text
       descricao: Descrição detalhada do produto
-      tipo: integer
+      tipo: string
       tamanho: 10
