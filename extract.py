@@ -10,10 +10,10 @@ def data_ingestion(source_url: str, save_path: str) -> None:
         Parameters
         ----------
         source_url : str
-        Hugging face source url.
+            Hugging face source url.
 
         save_path: str
-        Desired local path.
+            Desired local path.
         
         Returns
         -------
