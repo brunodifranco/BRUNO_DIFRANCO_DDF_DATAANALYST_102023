@@ -16,7 +16,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 
 ## Solução
 
-- Link para o vídeo:
+- [Vídeo no YouTube](https://youtu.be/DZcXUc6LzHE) com a apresentação.
 
 - Diagrama:
 ![Alt text](images/arquitetura.png)

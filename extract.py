@@ -28,6 +28,7 @@ def data_ingestion(source_url: str, save_path: str) -> None:
         os.makedirs(save_path)
 
     df.to_parquet(os.path.join(save_path, "data.parquet"), compression="gzip")
+    df.sample(frac=0.4).to_parquet(os.path.join(save_path, "data_40.parquet"), compression="gzip")
 
     return None
 
