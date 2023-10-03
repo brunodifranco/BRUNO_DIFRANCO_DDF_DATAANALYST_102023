@@ -35,12 +35,15 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`. 
 
 ![Alt text](images/image_data_ingestion.png)
-
 ![Alt text](images/extract_verbose.png)
 
 O arquivo é salvo em `.parquet`, para economia de espaço. Além disso, também é possível avaliar o processo feito, através do notebook `research/30-09-2023-extract.ipynb`, contendo um sample dos dados, além de informações básicas como tipos de dados, dados faltantes, tamanho dos dados, etc. 
 
 Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml`, com diversas informações referentes aos dados extraídos. Por fim, há um arquivo somente para descrever os tipos de dados, nomeado `schema.yaml`.
+
+O arquivo foi carregado para a plataforma da Dadosfera também:
+
+![Alt text](images/dadosfera_primeiro_carregamento.png)
 
 # **Item 3 - Sobre GenAI e LLMs**
 
