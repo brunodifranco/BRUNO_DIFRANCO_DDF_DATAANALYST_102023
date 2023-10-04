@@ -72,7 +72,7 @@ Ainda, o **dicionário de dados** está presente no arquivo `data_dict.yaml` (e 
     
 *Com mais tempo seria possível incrementar a solução sem necessariamente ter que gastar com um modelo pago, fazendo, por exemplo, o seguinte:*
 
-- *Classificando manualmente exemplos para incrementar o prompt*
+- *Classificando manualmente exemplos para incrementar o prompt.*
 - *Utilizar PEFT (Parameter Efficient Fine-Tuning) que busca fazer o fine tuning apenas dos parâmetros "mais relevantes" (entre muitas aspas) do LLM, como 1% dos parâmetros mais relevantes, por exemplo, ao invés de aplicar o fine tuning em todos os parâmetros.*
 
 # **Item  4 - Sobre SQL e Python**
@@ -115,54 +115,100 @@ O Dashbord está disponível em **Testes Técnicos - Analista de Dados/Bruno Di 
 - Tensorboard - Similaridade entre produtos
 - EDA - usando GPT
 
-
 **Obs: Não foi possível logar no Módulo de Inteligência na Dadosfera (o botão de login simplesmente parece não funcionar). Por isso, fiz o App no Streamlit manualmente, cujo repositório está disponível [aqui]().**
 ## Solução
- A ideia de App foi fazer um embedding das palavras (tokens) mais comuns utilizadas no título e descrição dos produtos no nosso dataset e visualizar esse resultado com um t-SNE, que é um método de redução de dimensionalidade (parecido com UMAP). Isso é útil para termos uma noção de similaridades entre objetos. O estudo desse item está presente em `research/03-10-2023-streamlit-prep.ipynb`, e foi desenvolvido com base no [notebook](https://www.kaggle.com/code/jeffd23/visualizing-word-vectors-with-t-sne/notebook) do Kaggle do usuário Jeff Delaney, incluindo o código, que foi adaptado desse notebook.
+ A ideia de App foi fazer um embedding das palavras (tokens) mais comuns utilizadas no título e descrição dos produtos no nosso dataset, utilizando um modelo Word2Vec. Depois, é possível visualizar esse resultado com um t-SNE, que é um método de redução de dimensionalidade (parecido com UMAP). Isso é útil para termos uma noção de similaridades entre objetos. O estudo desse item está presente em `research/03-10-2023-streamlit-prep.ipynb`, e foi desenvolvido com base no [notebook](https://www.kaggle.com/code/jeffd23/visualizing-word-vectors-with-t-sne/notebook) do Kaggle do usuário Jeff Delaney, incluindo o código, que foi adaptado desse notebook.
 
-O App do Streamlit é este abaixo:
+ Obs: O modelo de Word2Vec utilizado está em `models/word_embedding`.
 
+<div align="center">
 
-
-
-
-# **Item Bonus - Sobre GenAI + Data Apps**
+|         **Clique abaixo para acessar o App do Streamlit:**        |
+|:------------------------:|
+|         [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://star-jeans.streamlit.app/)
+</div>
 
 ## Extras:
 ### Organização do Projeto
 
+    ├── LICENSE
+    ├── README.md          <- README do projeto, com toda a documentação sobre o mesmo
+    ├── .venv              <- Arquivos do ambiente virtual (no repositório remoto está escondido)
+    │
+    ├── .artifacts
+    │   ├── data_ingestion      <- Arquivos .parquet extraídos (no repositório remoto está escondido)
+    │   └── data_transformation <- Arquivos .parquet com as categorias dos produtos (no repositório remoto está escondido)
+    │
+    ├── config           <- Pasta com o arquivo .yaml com as configurações do repositório
+    │        
+    ├── images           <- Imagens usadas no README do projeto
+    │
+    ├── models           <- Modelos de Embedding
+    │
+    ├── research         <- Jupyter notebooks, utilizados no desenvolvimento do projeto
+    │
+    ├── utils            <- Pasta com arquivos de utilidade
+    │   └── common       <- Funções auxiliares
+    │
+    ├── requirements.txt <- Bibliotecas necessárias no projeto `pip freeze > requirements.txt`
+    │
+    ├── data_dict.yaml   <- Dicionário de dados
+    ├── extract.py       <- Script de extração de arquivos
+    ├── llm_pipeline.py  <- Pipeline do modelo LLM
+    ├── schema.yaml      <- Dicionário de dados
+
 ### Como reproduzir o que foi feito?
 
-Clone o repositório com:
-
-```
-$ git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
-```
-Criar um ambiente virtal:
+Clonar o repositório com:
 
 ```
 git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
 ```
 
-Ativar o ambiente virtal:
+Criar um ambiente virtal. Primeiro checar se está instalado:
 
 ```
-git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+virtualenv --version
+```
+Se não tiver, instalar com:
+
+```
+pip install virtualenv
+```
+
+Agora criar o ambiente com o nome `.venv`, utilizando:
+
+```
+virtualenv .venv
+```
+
+Por fim, ativamos o ambiente virtual com:
+
+```
+source .venv/bin/activate
 ```
 
 Instalar as bibliotecas necessárias:
 
 ```
-git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+pip install -r requirements.txt
 ```
 
-Executar o script desejado, como o extract.py, por exemplo:
+Agora podemos executar o script desejado, como o extract.py, por exemplo:
 
 ```
 python extract.py
 ```
 
 ### Como melhorar a solução?
+
+- Fazer a extração de dados (arquivo `extract.py`) de modo que suba para um banco de dados como o Snowflake. Após, conseguiríamos captar esses dados diretamente desse banco de dados e utilizar a pipeline `llm_pipeline.py`. Por fim, poderíamos utilizar *Docker* e *MLFlow*, para utilizar containers e monitorar o desenvolvimento da aplicação.
+
+- Com uma escalabilidade maior do modelo (maior volume de dados) seria necessário a conversão do framework de Pandas para um processamento em paralelo, como o *PySpark*, por exemplo.
+
+- Conforme já citado, a questão da extração de features com a LLM poderia ser melhorada com:
+  - Classificar manualmente exemplos para incrementar o prompt.
+  - Utilizar PEFT (Parameter Efficient Fine-Tuning) que busca fazer o fine tuning apenas dos parâmetros "mais relevantes" (entre muitas aspas) do LLM, como 1% dos parâmetros mais relevantes, por exemplo, ao invés de aplicar o fine tuning em todos os parâmetros.
 
 
 
