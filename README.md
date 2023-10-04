@@ -115,15 +115,54 @@ O Dashbord está disponível em **Testes Técnicos - Analista de Dados/Bruno Di 
 - Tensorboard - Similaridade entre produtos
 - EDA - usando GPT
 
+
+**Obs: Não foi possível logar no Módulo de Inteligência na Dadosfera (o botão de login simplesmente parece não funcionar). Por isso, fiz o App no Streamlit manualmente, cujo repositório está disponível [aqui]().**
 ## Solução
+ A ideia de App foi fazer um embedding das palavras (tokens) mais comuns utilizadas no título e descrição dos produtos no nosso dataset e visualizar esse resultado com um t-SNE, que é um método de redução de dimensionalidade (parecido com UMAP). Isso é útil para termos uma noção de similaridades entre objetos. O estudo desse item está presente em `research/03-10-2023-streamlit-prep.ipynb`, e foi desenvolvido com base no [notebook](https://www.kaggle.com/code/jeffd23/visualizing-word-vectors-with-t-sne/notebook) do Kaggle do usuário Jeff Delaney, incluindo o código, que foi adaptado desse notebook.
+
+O App do Streamlit é este abaixo:
+
+
+
+
 
 # **Item Bonus - Sobre GenAI + Data Apps**
 
-## Problema
+## Extras:
+### Organização do Projeto
 
-<p align="justify"> Utilize este Data App como referência para criar um gerador de apresentações de produto. Seu objetivo é chegar em uma apresentação para mostrar as principais características do Produto a fim de vender mais. Utilize a API do Dall-e ou outro gerador de imagens para gerar uma imagem do produto. </p>
+### Como reproduzir o que foi feito?
 
-## Solução
+Clone o repositório com:
+
+```
+$ git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+```
+Criar um ambiente virtal:
+
+```
+git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+```
+
+Ativar o ambiente virtal:
+
+```
+git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+```
+
+Instalar as bibliotecas necessárias:
+
+```
+git clone https://github.com/brunodifranco/BRUNO_DIFRANCO_DDF_DATAANALYST_102023.git
+```
+
+Executar o script desejado, como o extract.py, por exemplo:
+
+```
+python extract.py
+```
+
+### Como melhorar a solução?
 
 
 
