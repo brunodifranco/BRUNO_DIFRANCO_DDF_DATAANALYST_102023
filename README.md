@@ -116,9 +116,9 @@ O Dashbord está disponível em **Testes Técnicos - Analista de Dados/Bruno Di 
 - Tensorboard - Similaridade entre produtos
 - EDA - usando GPT
 
-**Obs: Não foi possível logar no Módulo de Inteligência na Dadosfera (o botão de login simplesmente parece não funcionar). Por isso, fiz o App no Streamlit manualmente, cujo repositório está disponível [aqui]().**
+**Obs: Não foi possível logar no Módulo de Inteligência na Dadosfera (o botão de login simplesmente parece não funcionar). Por isso, fiz o App no Streamlit manualmente, cujo repositório está disponível [aqui](https://github.com/brunodifranco/data-analyst-streamlit-app).**
 ## Solução
- A ideia de App foi fazer um embedding das palavras (tokens) mais comuns utilizadas no título e descrição dos produtos no nosso dataset, utilizando um modelo Word2Vec. Depois, é possível visualizar esse resultado com um t-SNE, que é um método de redução de dimensionalidade (parecido com UMAP). Isso é útil para termos uma noção de similaridades entre objetos. O estudo desse item está presente em `research/03-10-2023-streamlit-prep.ipynb`, e foi desenvolvido com base no [notebook](https://www.kaggle.com/code/jeffd23/visualizing-word-vectors-with-t-sne/notebook) do Kaggle do usuário Jeff Delaney, incluindo o código, que foi adaptado desse notebook.
+A ideia de App foi fazer um embedding das palavras (tokens) mais comuns utilizadas no título e descrição dos produtos no nosso dataset, utilizando um modelo Word2Vec. Depois, é possível visualizar esse resultado com um t-SNE, que é um método de redução de dimensionalidade (parecido com UMAP). Isso é útil para termos uma noção de similaridades entre objetos. O estudo desse item está presente em `research/03-10-2023-streamlit-prep.ipynb`, e foi desenvolvido com base no [notebook](https://www.kaggle.com/code/jeffd23/visualizing-word-vectors-with-t-sne/notebook) do Kaggle do usuário Jeff Delaney, incluindo o código, que foi adaptado desse notebook.
 
  Obs: O modelo de Word2Vec utilizado está em `models/word_embedding`.
 
@@ -126,7 +126,7 @@ O Dashbord está disponível em **Testes Técnicos - Analista de Dados/Bruno Di 
 
 |         **Clique abaixo para acessar o App do Streamlit:**        |
 |:------------------------:|
-|         [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://star-jeans.streamlit.app/)
+|         [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://bruno-di-franco-dadosfera.streamlit.app/)
 </div>
 
 ## Extras:
