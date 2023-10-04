@@ -33,6 +33,7 @@ Sua apresentação deve ter, pelo menos, 3 destas respostas:
 ## Solução
 
 Extração dos dados com o script `extract.py`, com o auxílio das funcões criadas em `utils/common.py`, além do arquivo de configuração `config.yaml`. Isso permite o carregamento e salvamento local dos dados na pasta `artifacts`, que fica escondida, por conta do `.gitignore`, porém abaixo segue print desses dados salvos, além do terminal quando executamos o `extract.py`. 
+
 ![Alt text](images/image_data_ingestion.png)
 ![Alt text](images/extract_verbose.png)
 
